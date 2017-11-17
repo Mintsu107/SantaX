@@ -7,7 +7,12 @@ package onlinestore;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -97,6 +102,9 @@ public class Login extends javax.swing.JFrame {
 
         signin1.setBackground(new java.awt.Color(0, 204, 204));
         signin1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                signin1MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 signin1MouseEntered(evt);
             }
@@ -171,8 +179,8 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(signin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(signup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
-                        .addComponent(usertext, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
+                        .addComponent(jPasswordField1)
+                        .addComponent(usertext)
                         .addComponent(username, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(248, Short.MAX_VALUE))
         );
@@ -245,6 +253,34 @@ public class Login extends javax.swing.JFrame {
     private void signupMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupMouseExited
        text2.setForeground(Color.black);
     }//GEN-LAST:event_signupMouseExited
+
+    private void signin1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signin1MouseClicked
+        String usernames = usertext.getText();
+        String passwords = 
+        try {
+            Connection conn = ConnectionBuilder.getConnection();
+            String sql = "SELECT username FROM Users where username = ?";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, users);
+            ResultSet rs = pstm.executeQuery();
+
+                if(rs.next()) {       
+                    InfoUser info = new InfoUser(users);
+                    info.setVisible(true);
+                    info.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    info.setLocationRelativeTo(null);
+
+
+                    this.setVisible(false);
+                } else {
+                    JOptionPane.showMessageDialog(null, "username is invalid. Please,sign up");
+                }
+        } catch (SQLException ex) {
+            System.out.println("login" + ex.getMessage());
+        } catch (ClassNotFoundException ex) {
+            System.out.println("login2" + ex.getMessage());
+        }
+    }//GEN-LAST:event_signin1MouseClicked
 
     /**
      * @param args the command line arguments

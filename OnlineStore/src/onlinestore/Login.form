@@ -54,8 +54,8 @@
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="signup" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jPasswordField1" alignment="0" pref="328" max="32767" attributes="0"/>
-                          <Component id="usertext" alignment="0" pref="328" max="32767" attributes="0"/>
+                          <Component id="jPasswordField1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="usertext" alignment="0" max="32767" attributes="0"/>
                           <Component id="username" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -170,6 +170,7 @@
             </Property>
           </Properties>
           <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="signin1MouseClicked"/>
             <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="signin1MouseEntered"/>
             <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="signin1MouseExited"/>
           </Events>

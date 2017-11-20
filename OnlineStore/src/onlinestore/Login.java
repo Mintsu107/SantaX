@@ -5,6 +5,7 @@
  */
 package onlinestore;
 
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.sql.Connection;
@@ -13,16 +14,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import onlinestore.LASTShop;
 
-/**
- *
- * @author Mintsu
- */
+
 public class Login extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Shop
-     */
     public Login() {
         initComponents();
         this.getContentPane().setPreferredSize(new Dimension(800, 650));//เซตขนาดหน้าต่างเฟรม
@@ -40,7 +35,7 @@ public class Login extends javax.swing.JFrame {
         username = new javax.swing.JLabel();
         password = new javax.swing.JLabel();
         usertext = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        passtext = new javax.swing.JPasswordField();
         signin1 = new javax.swing.JPanel();
         text1 = new javax.swing.JLabel();
         exit = new javax.swing.JPanel();
@@ -60,7 +55,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        text2.setFont(new java.awt.Font("One Stroke Script LET", 0, 24)); // NOI18N
+        text2.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         text2.setForeground(new java.awt.Color(51, 51, 51));
         text2.setText("SIGN UP");
 
@@ -80,25 +75,13 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(text2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        username.setFont(new java.awt.Font("One Stroke Script LET", 0, 36)); // NOI18N
+        username.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
         username.setForeground(new java.awt.Color(255, 255, 255));
         username.setText("USERNAME");
 
-        password.setFont(new java.awt.Font("One Stroke Script LET", 0, 36)); // NOI18N
+        password.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
         password.setForeground(new java.awt.Color(255, 255, 255));
         password.setText("PASSWORD");
-
-        usertext.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usertextActionPerformed(evt);
-            }
-        });
-
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
-            }
-        });
 
         signin1.setBackground(new java.awt.Color(0, 204, 204));
         signin1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -113,7 +96,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        text1.setFont(new java.awt.Font("One Stroke Script LET", 0, 24)); // NOI18N
+        text1.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         text1.setForeground(new java.awt.Color(51, 51, 51));
         text1.setText("SIGN IN");
 
@@ -122,14 +105,14 @@ public class Login extends javax.swing.JFrame {
         signin1Layout.setHorizontalGroup(
             signin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(signin1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(33, 33, 33)
                 .addComponent(text1)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         signin1Layout.setVerticalGroup(
             signin1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, signin1Layout.createSequentialGroup()
-                .addGap(0, 11, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(text1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -156,7 +139,7 @@ public class Login extends javax.swing.JFrame {
         exitLayout.setHorizontalGroup(
             exitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(exitLayout.createSequentialGroup()
-                .addGap(120, 120, 120)
+                .addGap(111, 111, 111)
                 .addComponent(ex, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -172,17 +155,17 @@ public class Login extends javax.swing.JFrame {
             .addGroup(bgLayout.createSequentialGroup()
                 .addGap(237, 237, 237)
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(bgLayout.createSequentialGroup()
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
                             .addComponent(signin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(signup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jPasswordField1)
+                        .addComponent(passtext)
                         .addComponent(usertext)
-                        .addComponent(username, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(248, Short.MAX_VALUE))
+                        .addComponent(username, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(268, Short.MAX_VALUE))
         );
         bgLayout.setVerticalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,14 +177,14 @@ public class Login extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addComponent(password)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(passtext, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56)
-                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(signup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(signin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(signup, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(signin1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(30, 30, 30)
                 .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -217,14 +200,6 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void usertextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usertextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usertextActionPerformed
-
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
         System.exit(0);
@@ -256,66 +231,29 @@ public class Login extends javax.swing.JFrame {
 
     private void signin1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signin1MouseClicked
         String usernames = usertext.getText();
-        String passwords = 
+        String passwords = passtext.getText();
+        System.out.println(usernames + " " + passwords);
+     
         try {
             Connection conn = ConnectionBuilder.getConnection();
-            String sql = "SELECT username FROM Users where username = ?";
+            System.out.println(conn);
+            String sql = "SELECT * FROM customer where username = ? and password = ? ";
             PreparedStatement pstm = conn.prepareStatement(sql);
-            pstm.setString(1, users);
+            pstm.setString(1, usernames);
+            pstm.setString(2, passwords);
             ResultSet rs = pstm.executeQuery();
-
-                if(rs.next()) {       
-                    InfoUser info = new InfoUser(users);
-                    info.setVisible(true);
-                    info.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    info.setLocationRelativeTo(null);
-
-
-                    this.setVisible(false);
+                if(rs.next()) {         
+                    LASTShop sh = new LASTShop(usernames);
+                    sh.setVisible(true);
                 } else {
-                    JOptionPane.showMessageDialog(null, "username is invalid. Please,sign up");
+                    JOptionPane.showMessageDialog(null, "Please check your username and password");
                 }
         } catch (SQLException ex) {
             System.out.println("login" + ex.getMessage());
-        } catch (ClassNotFoundException ex) {
-            System.out.println("login2" + ex.getMessage());
         }
     }//GEN-LAST:event_signin1MouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
-    
-    
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        
-
-	       
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);
@@ -329,7 +267,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel bg;
     private javax.swing.JLabel ex;
     private javax.swing.JPanel exit;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField passtext;
     private javax.swing.JLabel password;
     private javax.swing.JPanel signin1;
     private javax.swing.JPanel signup;
